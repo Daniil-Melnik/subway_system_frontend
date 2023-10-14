@@ -22,28 +22,14 @@ export default function IndexPage(){
           setParas(result);
         }
       )
-      for (let i = 0; i < paras.length; i++)
-      {
-        arr.push({src : imgs[i].src, text : paras[i].text})
-      }
-      console.log(arr)
-      setPage(arr)
       },[])
-
-      // useEffect(()=>{
-      //   fetch("http://localhost:8080/student/getParas")
-      //   .then(res=>res.json())
-      //   .then((result)=>{
-      //     setParas(result);
-      //   }
-      // )
-      // },[])
       return (
         <div>
-          {page.map( p => (
-            <div>
-            <Section src = {p.src} text = {p.text} />
-            </div>
+          {imgs.map(p => (
+            <p>{p.src}</p>
+          ))}
+          {paras.map(p => (
+            <p>{p.text}</p>
           ))}
           <p>qqв</p>
         </div>
