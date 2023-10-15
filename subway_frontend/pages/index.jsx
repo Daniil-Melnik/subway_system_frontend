@@ -6,31 +6,24 @@ export default function IndexPage(){
     const[imgs,setImgs] = useState([])
     const[paras, setParas] = useState([])
 
-    const[page, setPage] = useState([])
+    const[section, setSection] = useState([])
 
     useEffect(()=>{
       let arr = [];
-        fetch("http://localhost:8080/student/getPhotos")
+        fetch("http://localhost:8080/student//getArticle/1")
         .then(res=>res.json())
         .then((result)=>{
-          setImgs(result);
-        }
-      )
-      fetch("http://localhost:8080/student/getParas")
-        .then(res=>res.json())
-        .then((result)=>{
-          setParas(result);
+          setSection(result);
         }
       )
       },[])
       return (
         <div>
-          {imgs.map(p => (
-            <p>{p.src}</p>
-          ))}
-          {paras.map(p => (
-            <p>{p.text}</p>
-          ))}
+          {section.map(s => (
+            <Section text = {s.text} src = {s.src} />
+          ))
+
+          }
           <p>qqв</p>
         </div>
       )
