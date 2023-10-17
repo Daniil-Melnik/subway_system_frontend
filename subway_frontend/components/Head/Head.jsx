@@ -10,7 +10,6 @@ export const Head = (props) => {
             <img className={css.logoimg} width="100" height="100" src="https://img.icons8.com/external-others-inmotus-design/100/000000/external-Subway-metro-others-inmotus-design-18.png" alt="external-Subway-metro-others-inmotus-design-18"/>
             <Link href="/Stations" className={css.linka}>Станции</Link>
         </div>
-        
     </div>
   );
 };
