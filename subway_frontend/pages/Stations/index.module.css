@@ -1,7 +1,19 @@
+@font-face {
+	font-family: 'Mono'; 
+	src: url(../../public/Jura-Medium.ttf); 
+}
+
 .linkPan {
     margin-top: 6%;
 }
 
 .article_pan {
-    margin-top: 6%;
+    margin-top: 6%;   
+}
+
+.title_article {
+    font-family: "Mono";
+    font-size: 2em;
+    text-align: center;
+    color: #265077;
 }

@@ -1,3 +1,27 @@
+@font-face {
+	font-family: 'Mono'; 
+	src: url(../../public/Jura-Medium.ttf); 
+}
+
+.main_section {
+    width: 80%;
+    text-align: center;
+    margin: auto ;
+}
+
 .image {
-    max-height: 300px;
+    max-height: 600px;
+}
+
+.art_text {
+    text-align: justify;
+    font-size: 1.5em;
+    font-family: "Mono";
+    color: #265077;
+}
+
+.caption {
+    font-size: 1em;
+    font-family: "Mono";
+    color: #1E4258;
 }

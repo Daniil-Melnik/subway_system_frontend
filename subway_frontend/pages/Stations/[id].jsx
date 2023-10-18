@@ -10,9 +10,9 @@ const StationItem = ({data, data_st}) => {
         return <div>
             <Head></Head>
             <div className={css.article_pan}>
-                <h2>{data_st.name}</h2>
+                <h2 className={css.title_article}>Станция {data_st.name}</h2>
                 {data.map(d => (
-                    <Section text = {d.text} src = {d.src}/>
+                    <Section text = {d.text} src = {d.src} caption = {d.caption}/>
                 ))}
             </div>
         </div>;
