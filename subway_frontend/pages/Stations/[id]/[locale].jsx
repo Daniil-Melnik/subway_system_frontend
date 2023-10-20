@@ -22,16 +22,16 @@ const StationItem = ({data, data_st}) => {
 
     useEffect(() => {
         if (router.query.locale == "en"){
-            setHead(["Main", "Stations"])
+            setHead(["Main", "Stations", "en"])
         }
         if (router.query.locale == "ru"){
-            setHead(["Главная", "Станции"])
+            setHead(["Главная", "Станции", "ru"])
         }
     }, []
 )
         console.log(router.query.locale);
         return <div>
-            <Head main = {head[0]} stations = {head[1]}></Head>
+            <Head main = {head[0]} stations = {head[1]} local = {head[2]}></Head>
             <div className={css.article_pan}>
                 <h2 className={css.title_article}>{stName}</h2>
                 {data.map(d => (

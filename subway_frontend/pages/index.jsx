@@ -17,5 +17,4 @@ export default function IndexPage(){
           <Head></Head>
         </div>
       )
-    
 }
