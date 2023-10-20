@@ -6,7 +6,7 @@
 .main {
     position: fixed;
     top: 0;
-    height: 10%;
+    height: 11%;
     width: 100%;
     background-color: #022140;
     
@@ -31,9 +31,30 @@
     text-decoration: none;
     /* margin-left: 5px;
     margin-right: 5px; */
+    width: 100px;
     font-weight: bold;
   }
 
+.menu_list {
+    list-style: none;
+    /* display: flex; */
+}
+
+.menu_list li {
+    width: 100px;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
   .linka:hover {
     color:  #2D5F5D;
+  }
+
+  .rightPan {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
   }

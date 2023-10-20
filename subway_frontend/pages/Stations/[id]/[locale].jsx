@@ -5,12 +5,14 @@ import React, { useEffect, useState } from "react";
 import css from "../index.module.css"
 import { compile } from "vue";
 import Link from "next/link";
+import Image from "next/image";
 
 const StationItem = ({data, data_st}) => {
     const router = useRouter();
     let [stName, setStName] = useState("")
     let [head, setHead] = useState([])
     let [loch, setLoch] = useState("")
+    let [locimg, setLocimg] = useState("")
     useEffect(() => {
             if (router.query.locale == "en"){
                 setStName(data_st.nameEn + " station")
@@ -22,16 +24,16 @@ const StationItem = ({data, data_st}) => {
     )
 
     useEffect(() => {
+        setLoch(`/Stations/${router.query.id}`)
         if (router.query.locale == "en"){
             setHead(["Main", "Stations", "en"])
-            setLoch(`${router.query.id}/ru`)
+            setLocimg("/rus.png")
         }
         if (router.query.locale == "ru"){
             setHead(["Главная", "Станции", "ru"])
-            setLoch(`${router.query.id}/en`)
+            setLocimg("/gb.png")
         }
-        
-    }, router.query.locale
+    }, router.query.locale, []
     )
 
     // useEffect(() => {
@@ -46,9 +48,9 @@ const StationItem = ({data, data_st}) => {
     // )
         console.log(router.query.locale);
         return <div>
-            <Head main = {head[0]} stations = {head[1]} local = {head[2]}></Head>
+            <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {loch} ></Head>
             <div className={css.article_pan}>
-            <Link href = {`/Stations/${loch}`}>qqq</Link>
+            
                 <h2 className={css.title_article}>{stName}</h2>
                 {data.map(d => (
                     <Section text = {d.text} src = {d.src} caption = {d.caption}/>

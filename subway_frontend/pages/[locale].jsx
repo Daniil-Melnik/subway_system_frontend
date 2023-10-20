@@ -13,12 +13,12 @@ const LocaleMainIndex = () => {
             if (router.query.locale == "ru"){
                 setHead(["Главная", "Станции", "ru"])
             }
-        }, []
+        }, router.query.locale
     )
 
   return (
     <div>
-        <Head main = {head[0]} stations = {head[1]} local = {head[2]}></Head>        
+        <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>       
     </div>
   );
 };

@@ -16,12 +16,12 @@ const LocaleIndex = ({data}) => {
             if (router.query.locale == "ru"){
                 setHead(["Главная", "Станции", "ru"])
             }
-        }, []
+        }, router.query.locale
     )
 
   return (
     <div>
-        <Head main = {head[0]} stations = {head[1]} local = {head[2]}></Head>
+        <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/AllStations"></Head>
         <div className={css.linkPan}>
             {data.map(s => (
                 <div>
