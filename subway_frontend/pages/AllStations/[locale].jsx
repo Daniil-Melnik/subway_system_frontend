@@ -24,7 +24,7 @@ const LocaleIndex = ({data}) => {
         <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/AllStations"></Head>
         <div className={css.linkPan}>
             {data.map(s => (
-                <div>
+                <div key={s.id}>
                     <p><Link href={`/Stations/${s.id}/${head[2]}`}>{s.name}</Link></p>
                 </div>
             ))}

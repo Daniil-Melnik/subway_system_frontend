@@ -81,11 +81,13 @@ export async function getStaticPaths(context) {
             { params: {id: "2", locale: "ru"}},
             { params: {id: "3", locale: "ru"}},
             { params: {id: "4", locale: "ru"}},
+            { params: {id: "5", locale: "ru"}},
         
             { params: {id: "1", locale: "en"}},
             { params: {id: "2", locale: "en"}},
             { params: {id: "3", locale: "en"}},
-            { params: {id: "4", locale: "en"}}],
+            { params: {id: "4", locale: "en"}},
+            { params: {id: "5", locale: "en"}}],
         fallback: false,
     };
 }
