@@ -24,6 +24,11 @@ export default function IndexPage(){
       })
     }
 
+    const handleFormSubmit = () => {
+        localStorage.setItem('address', "qqqq");
+        localStorage.setItem('psw', "pppp");
+      };
+
       return (
         <div>
           {/* <Head main = "Главная" stations = "Станции" local = "ru" hr = "/"></Head> */}
@@ -31,7 +36,7 @@ export default function IndexPage(){
             <form noValidate autoComplete="off">
                 <input type="text" label="User E-mail" value={email} onChange={(e)=>setEmail(e.target.value)} />
                 <input type="text" label="User password" value={psw} onChange={(e)=>setPsw(e.target.value)} />
-                <button variant="contained" color="red" onClick={handleClick}>Submit</button>
+                <button variant="contained" color="red" onClick={handleFormSubmit}>Submit</button>
             </form>
           </div>
         </div>
