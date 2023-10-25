@@ -13,11 +13,11 @@ const LocaleMainIndex = () => {
     useEffect(() => {
             if (router.query.locale == "en"){
                 setHead(["Main", "Stations", "en"])
-                setAuth(["Please, log in", "log in", "registration"])
+                setAuth(["Please, log in", "log in", "registration", "e-mail", "password", "submit", "logout"])
             }
             if (router.query.locale == "ru"){
                 setHead(["Главная", "Станции", "ru"])
-                setAuth(["Авторизуйтесь", "авторизация", "регистрация"])
+                setAuth(["Авторизуйтесь", "авторизация", "регистрация", "Эл. почта", "Пароль", "принять", "выйти"])
             }
             setStore(localStorage.getItem("isLogged"))
         }, [router.query.locale, store]
@@ -32,7 +32,7 @@ const LocaleMainIndex = () => {
     else{
         return (
             <div className={css.mainpan}>
-                <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>
+                <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization/`}></Head>
                 <NeedAuth msg={auth[0]} href_msg={auth[1]} href_msg_s = {auth[2]} href={`/Authorization/${head[2]}`} href_s="/Registration"/>   
             </div>
           );

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Head } from "@/components/Head/Head";
 import css from "./index.module.css"
-import { NeedAuth } from "@/components/NeedAuth/NeedAuth";
 
 const LocaleMainIndex = () => {
     const router = useRouter();
@@ -19,14 +18,24 @@ const LocaleMainIndex = () => {
     useEffect(() => {
             if (router.query.locale == "en"){
                 setHead(["Main", "Stations", "en"])
-                setAuth(["Please, log in", "log in", "registration", "e-mail", "password", "submit"])
+                setAuth(["Please, log in", "log in", "registration", "e-mail", "password", "submit", "logout"])
             }
             if (router.query.locale == "ru"){
                 setHead(["Главная", "Станции", "ru"])
-                setAuth(["Авторизуйтесь", "авторизация", "регистрация", "Эл. почта", "Пароль", "принять"])
+                setAuth(["Авторизуйтесь", "авторизация", "регистрация", "Эл. почта", "Пароль", "принять", "выйти"])
             }
             setStore(localStorage.getItem("isLogged"))
-        }, [router.query.locale, store]
+            if (email != ""){
+                if (psw != ""){
+                    fetch(`http://localhost:8080/student/getUser/${email}/${psw}`)
+                    .then(res=>res.json()).then((result)=>{
+                        setUser(result);
+                    },
+                    console.log(user)   
+                    ) 
+                }
+            }
+        }, [router.query.locale, store, psw, email]
     )
 
     const handleClick=(e)=>{
@@ -35,6 +44,7 @@ const LocaleMainIndex = () => {
             setUsername(user.email)
             localStorage.setItem("email", user.email)
             localStorage.setItem("isLogged", 1)
+            window.location.replace(`/${head[2]}`);
         }
         else {
             setUsername("no_user")
@@ -44,9 +54,8 @@ const LocaleMainIndex = () => {
     }
     return (
         <div>
-          <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization/`}></Head>
+          <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization/`} logout = {auth[6]}></Head>
           <div className= {css.main}>
-            <p>{username}</p>
             <form noValidate autoComplete="off">
                 <ul className={css.list}>
                     <li><input type="text" label="User E-mail" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder={auth[3]} className={css.input}/></li>

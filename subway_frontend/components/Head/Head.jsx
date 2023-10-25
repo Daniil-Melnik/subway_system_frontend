@@ -6,18 +6,27 @@ import Image from "next/image";
 export const Head = (props) => {
   let [loch, setLoch] = useState("")
   let [locimg, setLocimg] = useState("")
-  let [email, setEmail] = useState("")
+  let [email, setEmail] = useState([])
+
+  const handleClick=(e)=>{
+    e.preventDefault()
+    localStorage.setItem("isLogged", 0)
+    localStorage.setItem("email", "")
+}
+
   useEffect(() => {
     if (props.local == "en") {
       setLoch(`${props.hr}/ru`)
       setLocimg("/rus.png")
+      setEmail([localStorage.getItem("email"), "logout"])
     }
     if (props.local == "ru") {
       setLoch(`${props.hr}/en`)
       setLocimg("/gb.png")
+      setEmail([localStorage.getItem("email"), "выйти"])
     }
-    setEmail(localStorage.getItem("email"))
-  })
+    
+  }, [props.local])
   return(
     <div className={css.main}>
         <div className={css.menu}>
@@ -28,8 +37,8 @@ export const Head = (props) => {
           </list>
           
         </div>
+        <h2 className={css.email}>{email[0]} (<button className={css.logout_btn} onClick={handleClick}>{email[1]}</button>)</h2>
         <div className={css.rightPan}>
-            <h2 className={css.email}>{email}</h2>
             <Link href = {loch}><Image src={locimg} height={36} width={36}/></Link>
         </div>
         

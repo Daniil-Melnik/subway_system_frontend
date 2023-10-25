@@ -60,11 +60,18 @@
   }
 
   .email {
-    vertical-align: middle;
     color: aliceblue;
     font-family: 'Mono';
     position: absolute;
-    top: -5px;
-    right: 45px;
+    top: 20px;
+    right: 100px;
     font-size: 1em;
+  }
+
+  .logout_btn {
+    background-color: #022140;
+    color: aliceblue;
+    border: 0;
+    font-family: 'Mono';
+    cursor: pointer;
   }
