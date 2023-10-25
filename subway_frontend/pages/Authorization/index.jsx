@@ -44,7 +44,7 @@ export default function IndexPage(){
     
       return (
         <div>
-          {/* <Head main = "Главная" stations = "Станции" local = "ru" hr = "/"></Head> */}
+          <Head main = "Главная" stations = "Станции" local = "ru" hr = "/"></Head>
           <div>
             <p>{username}</p>
             <form noValidate autoComplete="off">

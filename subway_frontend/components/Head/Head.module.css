@@ -58,3 +58,13 @@
     width: 36px;
     height: 36px;
   }
+
+  .email {
+    vertical-align: middle;
+    color: aliceblue;
+    font-family: 'Mono';
+    position: absolute;
+    top: -5px;
+    right: 45px;
+    font-size: 1em;
+  }

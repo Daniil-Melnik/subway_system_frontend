@@ -6,6 +6,7 @@ import Image from "next/image";
 export const Head = (props) => {
   let [loch, setLoch] = useState("")
   let [locimg, setLocimg] = useState("")
+  let [email, setEmail] = useState("")
   useEffect(() => {
     if (props.local == "en") {
       setLoch(`${props.hr}/ru`)
@@ -15,6 +16,7 @@ export const Head = (props) => {
       setLoch(`${props.hr}/en`)
       setLocimg("/gb.png")
     }
+    setEmail(localStorage.getItem("email"))
   })
   return(
     <div className={css.main}>
@@ -27,6 +29,7 @@ export const Head = (props) => {
           
         </div>
         <div className={css.rightPan}>
+            <h2 className={css.email}>{email}</h2>
             <Link href = {loch}><Image src={locimg} height={36} width={36}/></Link>
         </div>
         
