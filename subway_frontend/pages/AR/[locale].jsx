@@ -5,7 +5,7 @@ import { Head } from "@/components/Head/Head";
 import css from "./index.module.css"
 import { NeedAuth } from "@/components/NeedAuth/NeedAuth";
 
-const LocaleMainIndex = () => {
+const ARMainIndex = () => {
     const router = useRouter();
     let [head, setHead] = useState([])
     let [auth, setAuth] = useState([])
@@ -20,21 +20,18 @@ const LocaleMainIndex = () => {
                 setAuth(["Авторизуйтесь", "авторизация", "регистрация", "Эл. почта", "Пароль", "принять", "выйти"])
             }
             setStore(localStorage.getItem("isLogged"))
-            if (localStorage.getItem("isLogged") == 0) {
-                window.location.replace(`/AR/${head[2]}`);
-            }
         }, [router.query.locale, store]
     )
-    if (store == 1){
+
         return (
             <div className={css.mainpan}>
-                <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>       
+                <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization/`}></Head>
+                <NeedAuth msg={auth[0]} href_msg={auth[1]} href_msg_s = {auth[2]} href={`/Authorization/${head[2]}`} href_s={`/Registration/${head[2]}`}/>   
             </div>
           );
-    } 
 };
 
-export default LocaleMainIndex;
+export default ARMainIndex;
 
 export async function getStaticProps(context) {
     const stations = await fetch(`http://localhost:8080/student/getStations/${context.params.locale}`).then(res=>res.json())
