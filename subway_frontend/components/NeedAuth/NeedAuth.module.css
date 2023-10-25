@@ -1,0 +1,24 @@
+@font-face {
+	font-family: 'Mono'; 
+	src: url(../../public/Jura-Medium.ttf); 
+}
+
+.main {
+    background: rgb(38, 80, 119, 0.8);
+    margin-top: auto;
+    width: 400px;
+    height: 300px;
+}
+
+.link {
+    text-decoration: none;
+    color: aliceblue;
+    font-family: 'Mono';
+    z-index: 1;
+}
+
+.message {
+    color: aliceblue;
+    font-family: 'Mono';
+}
+

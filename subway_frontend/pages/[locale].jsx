@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Head } from "@/components/Head/Head";
 import Link from "next/link";
+import { NeedAuth } from "@/components/NeedAuth/NeedAuth";
 
 const LocaleMainIndex = () => {
     const router = useRouter();
@@ -28,7 +29,7 @@ const LocaleMainIndex = () => {
     else{
         return (
             <div>
-                must authorisation 
+                 <NeedAuth msg="Авторизуйтсь" href_msg="Авторизоваться" href="/Authorization"/>
                 <p></p>
                 <Link href="/Authorization">go</Link>    
             </div>
