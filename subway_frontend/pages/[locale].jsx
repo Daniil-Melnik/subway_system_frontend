@@ -2,36 +2,38 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Head } from "@/components/Head/Head";
-import Link from "next/link";
+import css from "./index.module.css"
 import { NeedAuth } from "@/components/NeedAuth/NeedAuth";
 
 const LocaleMainIndex = () => {
     const router = useRouter();
     let [head, setHead] = useState([])
+    let [auth, setAuth] = useState([])
     let [store, setStore] = useState(0)
     useEffect(() => {
             if (router.query.locale == "en"){
                 setHead(["Main", "Stations", "en"])
+                setAuth(["Please, log in", "log in", "registration"])
             }
             if (router.query.locale == "ru"){
                 setHead(["Главная", "Станции", "ru"])
+                setAuth(["Авторизуйтесь", "авторизация", "регистрация"])
             }
             setStore(localStorage.getItem("isLogged"))
         }, [router.query.locale, store]
     )
     if (store == 1){
         return (
-            <div>
+            <div className={css.mainpan}>
                 <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>       
             </div>
           );
     }
     else{
         return (
-            <div>
-                 <NeedAuth msg="Авторизуйтсь" href_msg="Авторизоваться" href="/Authorization"/>
-                <p></p>
-                <Link href="/Authorization">go</Link>    
+            <div className={css.mainpan}>
+                <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>
+                <NeedAuth msg={auth[0]} href_msg={auth[1]} href_msg_s = {auth[2]} href="/Authorization" href_s="/Registration"/>   
             </div>
           );
     }
