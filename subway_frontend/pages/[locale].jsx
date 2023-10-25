@@ -2,10 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Head } from "@/components/Head/Head";
+import Link from "next/link";
 
 const LocaleMainIndex = () => {
     const router = useRouter();
     let [head, setHead] = useState([])
+    let [store, setStore] = useState(0)
     useEffect(() => {
             if (router.query.locale == "en"){
                 setHead(["Main", "Stations", "en"])
@@ -13,14 +15,26 @@ const LocaleMainIndex = () => {
             if (router.query.locale == "ru"){
                 setHead(["Главная", "Станции", "ru"])
             }
-        }, router.query.locale
+            setStore(localStorage.getItem("isLogged"))
+        }, [router.query.locale, store]
     )
-
-  return (
-    <div>
-        <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>       
-    </div>
-  );
+    if (store == 1){
+        return (
+            <div>
+                <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = "/"></Head>       
+            </div>
+          );
+    }
+    else{
+        return (
+            <div>
+                must authorisation 
+                <p></p>
+                <Link href="/Authorization">go</Link>    
+            </div>
+          );
+    }
+  
 };
 
 export default LocaleMainIndex;
