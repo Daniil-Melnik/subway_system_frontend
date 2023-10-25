@@ -33,7 +33,7 @@ const LocaleMainIndex = () => {
         return (
             <div className={css.mainpan}>
                 <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization/`}></Head>
-                <NeedAuth msg={auth[0]} href_msg={auth[1]} href_msg_s = {auth[2]} href={`/Authorization/${head[2]}`} href_s="/Registration"/>   
+                <NeedAuth msg={auth[0]} href_msg={auth[1]} href_msg_s = {auth[2]} href={`/Authorization/${head[2]}`} href_s={`/Registration/${head[2]}`}/>   
             </div>
           );
     }

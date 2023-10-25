@@ -7,23 +7,28 @@ export const Head = (props) => {
   let [loch, setLoch] = useState("")
   let [locimg, setLocimg] = useState("")
   let [email, setEmail] = useState([])
+  let [lg, setLg] = useState("")
 
   const handleClick=(e)=>{
     e.preventDefault()
     localStorage.setItem("isLogged", 0)
     localStorage.setItem("email", "")
+    setEmail("")
+    window.location.replace(`/${props.local}`);
 }
 
   useEffect(() => {
     if (props.local == "en") {
       setLoch(`${props.hr}/ru`)
       setLocimg("/rus.png")
-      setEmail([localStorage.getItem("email"), "logout"])
+      setEmail(localStorage.getItem("email"))
+      setLg("logout")
     }
     if (props.local == "ru") {
       setLoch(`${props.hr}/en`)
       setLocimg("/gb.png")
-      setEmail([localStorage.getItem("email"), "выйти"])
+      setEmail(localStorage.getItem("email"))
+      setLg("выйти")
     }
     
   }, [props.local])
@@ -37,7 +42,7 @@ export const Head = (props) => {
           </list>
           
         </div>
-        <h2 className={css.email}>{email[0]} (<button className={css.logout_btn} onClick={handleClick}>{email[1]}</button>)</h2>
+        <h2 className={css.email}>{email} (<button className={css.logout_btn} onClick={handleClick}>{lg}</button>)</h2>
         <div className={css.rightPan}>
             <Link href = {loch}><Image src={locimg} height={36} width={36}/></Link>
         </div>

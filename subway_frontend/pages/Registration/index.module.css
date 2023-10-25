@@ -1,0 +1,25 @@
+.main {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.list {
+    list-style: none;
+}
+
+.input {
+    height: 20px;
+    width: 200px;
+    margin-top: 5px;
+}
+
+.btn {
+    margin-top: 5px;
+}
+
+.err_msg {
+    background: rgb(255, 0, 0, 0.29);
+    border: 1px solid red;
+    margin-left: auto;
+    margin-right: auto;
+}
