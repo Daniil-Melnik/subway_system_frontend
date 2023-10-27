@@ -35,11 +35,11 @@ export const Head = (props) => {
   return(
     <div className={css.main}>
         <div className={css.menu}>
-          <list className={css.menu_list}>
+          <ul className={css.menu_list}>
             <li><Link href={`/${props.local}`} className={css.linka} >{props.main}</Link></li>
             <li><img className={css.logoimg} width="100" height="100" src="https://img.icons8.com/external-others-inmotus-design/100/000000/external-Subway-metro-others-inmotus-design-18.png" alt="external-Subway-metro-others-inmotus-design-18"/></li>
             <li><Link href= {`/AllStations/${props.local}`} className={css.linka}>{props.stations}</Link></li>
-          </list>
+          </ul>
           
         </div>
         <h2 className={css.email}>{email} (<button className={css.logout_btn} onClick={handleClick}>{lg}</button>)</h2>

@@ -24,11 +24,6 @@ export default function IndexPage(){
       })
     }
 
-    const handleFormSubmit = () => {
-        localStorage.setItem('address', "qqqq");
-        localStorage.setItem('psw', "pppp");
-      };
-
       return (
         <div>
           {/* <Head main = "Главная" stations = "Станции" local = "ru" hr = "/"></Head> */}

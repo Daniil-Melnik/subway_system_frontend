@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { Head } from "@/components/Head/Head";
 import css from "./index.module.css"
 
+import { CookiesProvider, useCookies } from "react-cookie";
+
 const LocaleMainIndex = () => {
     const router = useRouter();
     let [head, setHead] = useState([])
@@ -14,7 +16,13 @@ const LocaleMainIndex = () => {
     let [psw, setPsw] = useState("")
     let [user, setUser] = useState()
     let [username, setUsername] = useState("")
+    const [cookies, setCookie] = useCookies(["user_email"]);
 
+
+    
+    useEffect(() => {
+        setEmail(cookies.user_email)
+    }, [])
     useEffect(() => {
             if (router.query.locale == "en"){
                 setHead(["Main", "Stations", "en"])
@@ -51,10 +59,11 @@ const LocaleMainIndex = () => {
             localStorage.setItem("email", "")
             localStorage.setItem("isLogged", 0)
         }
+        setCookie("user_email", email, { path: "/" });
     }
     return (
         <div>
-          <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization/`} logout = {auth[6]}></Head>
+          <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {`/Authorization`} logout = {auth[6]}></Head>
           <div className= {css.main}>
             <form noValidate autoComplete="off">
                 <ul className={css.list}>
