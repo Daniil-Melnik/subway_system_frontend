@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Head } from "@/components/Head/Head";
+import { StCard } from "@/components/StCard/StCard";
 import css from "./index.module.css"
 
 const LocaleIndex = ({data}) => {
@@ -25,7 +26,8 @@ const LocaleIndex = ({data}) => {
         <div className={css.linkPan}>
             {data.map(s => (
                 <div key={s.id}>
-                    <p><Link href={`/Stations/${s.id}/${head[2]}`}>{s.name}</Link></p>
+                    <StCard img1 = {s.img1} img2 = {s.img2} img3 = {s.img3} linka = {`/Stations/${s.id}/${head[2]}`} year = {s.year} name = {s.name} ></StCard>
+                    {/* <p><Link href={`/Stations/${s.id}/${head[2]}`}>{s.name}</Link></p> */}
                 </div>
             ))}
         </div>
@@ -38,6 +40,7 @@ export default LocaleIndex;
 
 export async function getStaticProps(context) {
     const stations = await fetch(`http://localhost:8080/student/getStations/${context.params.locale}`).then(res=>res.json())
+    const lines = await fetch(`http://localhost:8080/student/getLines`).then(res=>res.json())
     return {
         props: {
             data: stations,

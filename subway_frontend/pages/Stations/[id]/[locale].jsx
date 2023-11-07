@@ -35,17 +35,6 @@ const StationItem = ({data, data_st}) => {
         }
     }, router.query.locale, []
     )
-
-    // useEffect(() => {
-    //     if (router.query.locale == "en"){
-    //         setLoch([`/Stations/${router.query.id}/ru`, "Русский"])
-    //     }
-    //     if (router.query.locale == "ru"){
-    //         setLoch([`/Stations/${router.query.id}/en`, "Английский"])
-    //     }
-    //     console.log(loch[1])
-    // }, []
-    // )
         console.log(router.query.locale);
         return <div>
             <Head main = {head[0]} stations = {head[1]} local = {head[2]} hr = {loch} ></Head>
