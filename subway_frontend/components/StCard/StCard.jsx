@@ -6,7 +6,7 @@ export const StCard = (props) => {
   return(
     <div className={css.main_section} key={props.src}>
         <div className={css.photo_list}>
-            <ul>
+            <ul className={css.listik}>
                 <li><img className={css.small_img} src={props.img1} /></li>
                 <li><img className={css.small_img} src={props.img2}/></li>
                 <li><img className={css.small_img} src={props.img3}/></li>
