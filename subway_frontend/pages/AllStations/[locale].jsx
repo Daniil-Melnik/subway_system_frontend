@@ -65,19 +65,19 @@ const LocaleIndex = ({data, l_data}) => {
                 <p className={css.main_title}>Станции</p>
                 <input type="text" label="Название станции" value={stName} onChange={(e)=>setStName(e.target.value)} placeholder="Название станции" className={css.input}/>
                 <div className={css.linkPan}>
-                    <table>
-                        <tr>
-                            <th>Название</th>
-                            <th>Год</th>
-                            <th>Линия</th>
-                            <th>№ линии</th>
+                    <table className={css.table}>
+                        <tr className={css.tr}>
+                            <th className={css.td_1}>Название</th>
+                            <th className={css.td_2}>Год</th>
+                            <th className={css.td_3}>Линия</th>
+                            <th className={css.td_4}>№ линии</th>
                         </tr>
                         {dataM.map(s => (
-                            <tr>
-                                <td><Link href={`/Stations/${s.id}/${head[2]}`}>{s.name}</Link></td>
-                                <td>{s.year}</td>
-                                <td>{l_data[s.line_id - 1].name}</td>
-                                <td>{s.line_id}</td>
+                            <tr className={css.tr}>
+                                <td className={css.td_1}><Link className={css.tb_link} href={`/Stations/${s.id}/${head[2]}`}>{s.name}</Link></td>
+                                <td className={css.td_2}>{s.year}</td>
+                                <td className={css.td_3}>{l_data[s.line_id - 1].name}</td>
+                                <td className={css.td_4}>{s.line_id}</td>
                             </tr>
                         ))}
                     </table>
