@@ -26,7 +26,7 @@ const LocaleIndex = ({data, l_data}) => {
         <div className={css.linkPan}>
             {data.map(s => (
                 <div key={s.id} className={css.cards}>
-                    <StCard img1 = {s.img1} img2 = {s.img2} img3 = {s.img3} linka = {`/Stations/${s.id}/${head[2]}`} year = {s.year} name = {s.name} line = {l_data[s.line_id - 1].name}></StCard>
+                    <StCard img1 = {s.img1} img2 = {s.img2} img3 = {s.img3} linka = {`/Stations/${s.id}/${head[2]}`} year = {s.year} name = {s.name} line = {l_data[s.line_id - 1].name} line_id = {s.line_id}></StCard>
                     {/* <p><Link href={`/Stations/${s.id}/${head[2]}`}>{s.name}</Link></p> */}
                 </div>
             ))}
