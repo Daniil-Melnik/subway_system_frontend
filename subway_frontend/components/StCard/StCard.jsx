@@ -36,8 +36,8 @@ export const StCard = (props) => {
             <p className={`${lc}`}>{props.line} линия</p>
             <p>{props.year} год</p>
         </div>
-        <div>
-            <Link href={props.linka}>Перейти</Link>
+        <div className={css.linka}>
+            <Link href={props.linka} className={css.link}>Перейти</Link>
         </div>
     </div>
   );
