@@ -4,7 +4,7 @@
 }
 
 .linkPan {
-    margin-top: 6%;
+    margin-top: 1%;
 }
 
 .article_pan {
@@ -17,3 +17,32 @@
     text-align: center;
     color: #265077;
 }
+
+.input {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1%;
+    height: 35px;
+    /* border-radius: 5px; */
+    border: 0;
+    background: #f7f7f7;
+    font-size: 1.2em;
+    font-family: 'Mono';
+    color: #265077;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+
+  .input:focus {
+    outline: none;
+  }
+
+  .main_title{
+    font-family: 'Mono';
+    color: #022140;
+    font-size: 1.6em;
+    margin-top: 6%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0;
+  }
