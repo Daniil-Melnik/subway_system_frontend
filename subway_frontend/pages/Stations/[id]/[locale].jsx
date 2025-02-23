@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { Head } from "@/components/Head/Head";
 import React, { useEffect, useState } from "react";
 import css from "../index.module.css"
-import { compile } from "vue";
-import Link from "next/link";
-import Image from "next/image";
+//import { compile } from "vue";
+//import Link from "next/link";
+//import Image from "next/image";
 
 const StationItem = ({data, data_st}) => {
     const router = useRouter();
